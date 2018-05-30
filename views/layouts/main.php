@@ -86,6 +86,7 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 </body>
 </html>
 <?php $this->endPage() ?>
