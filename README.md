@@ -8,7 +8,7 @@
 <p>php yii migrate --migrationPath=@yii/rbac/migrations</p>
 <p>php yii rbac/init</p>
 
-
+https://yiiframework.com.ua/ru/doc/guide/2/security-authorization/
  
 
 
