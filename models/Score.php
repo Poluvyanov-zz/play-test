@@ -9,10 +9,10 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
 /**
- * Task model
+ * Score model
  *
  */
-class Task extends ActiveRecord
+class Score extends ActiveRecord
 {
 
 
@@ -21,7 +21,7 @@ class Task extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%task}}';
+        return '{{%score}}';
     }
 
 
@@ -33,8 +33,6 @@ class Task extends ActiveRecord
     {
         return $this->getPrimaryKey();
     }
-
-
 
 
 }

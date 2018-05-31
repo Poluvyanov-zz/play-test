@@ -4,11 +4,9 @@
 
 <p>Создать базу данных yii2-test</p>
 <p>Запустить миграции php yii migrate</p>
-<p>Зарегистрировать пользователя admin</p>
 <p>php yii migrate --migrationPath=@yii/rbac/migrations</p>
 <p>php yii rbac/init</p>
 
-https://yiiframework.com.ua/ru/doc/guide/2/security-authorization/
  
 
 

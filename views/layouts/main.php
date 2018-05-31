@@ -54,6 +54,8 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+        $menuItems[] = ['label' => 'Играть', 'url' => ['/play/index']];
+        $menuItems[] = ['label' => 'Профиль', 'url' => ['/profile/index']];
 
     if (\Yii::$app->user->can('admin')) {
         $menuItems[] = ['label' => 'Добавить задание', 'url' => ['/task/create']];
@@ -86,7 +88,7 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
-<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
 </body>
 </html>
 <?php $this->endPage() ?>

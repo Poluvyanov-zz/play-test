@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `score`.
+ * Handles the creation of table `status`.
  */
-class m180530_105409_create_score_table extends Migration
+class m180531_064232_create_status_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -18,12 +18,18 @@ class m180530_105409_create_score_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('score', [
+        $this->createTable('status', [
             'id' => $this->primaryKey(),
-            'task_id' => $this->integer(),
-            'status_id' => $this->integer(),
-            'user_id' => $this->integer(),
+            'name' => $this->string(),
         ], $tableOptions);
+
+        $this->insert('status', [
+            'name' => 'win'
+        ]);
+
+        $this->insert('status', [
+            'name' => 'fail'
+        ]);
     }
 
     /**
@@ -31,6 +37,6 @@ class m180530_105409_create_score_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('score');
+        $this->dropTable('status');
     }
 }

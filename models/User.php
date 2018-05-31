@@ -35,15 +35,6 @@ class User extends ActiveRecord implements IdentityInterface
         return '{{%user}}';
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            TimestampBehavior::className(),
-        ];
-    }
 
     /**
      * @inheritdoc
@@ -134,6 +125,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function generateAuthKey()
     {
         $this->auth_key = Yii::$app->security->generateRandomString();
+    }
+
+    public function getWintask()
+    {
+        return $this->hasMany(Score::className(), ['user_id' => 'id']);
     }
 
 }
