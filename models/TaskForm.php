@@ -12,6 +12,11 @@ class TaskForm extends Model
 {
     public $task;
 
+    public function attributeLabels() {
+        return [
+            'task' => 'Введите текст'
+        ];
+    }
 
     /**
      * @return array the validation rules.
@@ -25,31 +30,38 @@ class TaskForm extends Model
         ];
     }
 
-    /**
-     * @return array customized attribute labels
-     */
-    public function attributeLabels()
-    {
-        return [
-            'verifyCode' => 'Verification Code',
-        ];
-    }
 
-    /**
-     * Sends an email to the specified email address using the information collected by this model.
-     * @param string $email the target email address
-     * @return bool whether the model passes validation
-     */
     public function create($params)
     {
-        if ($this->validate()) {
+        if (!$this->validate())
+            return false;
 
+        foreach ($this->DividedIntoSentences($this->task) as $key => $value) {
             $task = new Task();
-            $task->task = $this->task;
+            $task->task = $value;
             $task->save();
-
-            return true;
         }
-        return false;
+
+
+
+
+        return true;
+
+
+    }
+
+
+    public function DividedIntoSentences($text)
+    {
+        $items = preg_split("/[.?!] /", $text);
+
+        foreach ($items as $key => $value) {
+            if (!(str_word_count($value) > 3))
+                continue;
+            $sentences[] = $value;
+
+        }
+
+        return $sentences;
     }
 }

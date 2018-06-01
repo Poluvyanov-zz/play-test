@@ -1,11 +1,8 @@
 <?php
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\models\ShiftForm */
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use yii\captcha\Captcha;
-$this->title = 'Добавить задание';
+
+$this->title = 'Генерация заданий';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
@@ -20,11 +17,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php $form = ActiveForm::begin(['id' => 'task-form']); ?>
 
 
-        <?= $form->field($model, 'task') ?>
+
+        <?= $form->field($model, 'task')->textarea(['rows' => '6']) ?>
 
 
         <div class="form-group">
-            <?= Html::submitButton('Создать предложение', ['class' => 'btn btn-primary', 'name' => 'shift-button']) ?>
+            <?= Html::submitButton('Генерировать задания', ['class' => 'btn btn-primary', 'name' => 'shift-button']) ?>
         </div>
 
         <?php ActiveForm::end(); ?>

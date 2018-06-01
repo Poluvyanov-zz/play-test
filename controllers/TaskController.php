@@ -58,17 +58,24 @@ class TaskController extends Controller
      */
     public function actionCreate()
     {
+
+
+
+
+
         $model = new TaskForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->create(Yii::$app->request->post())) {
             Yii::$app->session->setFlash('TaskFormSubmitted');
             return $this->refresh();
         }
+
+
         return $this->render('create', [
             'model' => $model,
         ]);
 
     }
-
 
 
 
